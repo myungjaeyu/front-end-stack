@@ -1,0 +1,13 @@
+{ "parser": "babel-eslint",
+  "extends": "airbnb",
+  "env": { "browser": true,
+           "es6": true},
+  "rules": {"no-console": "error",
+            "no-return-assign": "off",
+            "operator-linebreak": ["error", "after"],
+            "react/jsx-filename-extension": ["error", {"extensions": [".js"]}],
+            "react/jsx-max-props-per-line": ["error", {"maximum": 3}],
+            "react/no-danger": "error",
+            "react/no-direct-mutation-state": "error"}}
+
+// airbnb rule
