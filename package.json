@@ -1,0 +1,20 @@
+{
+  "name": "front-stack",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Myungjae Yu <rootcode10@gmail.com> (https://github.com/myungjaeyu)",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/myungjaeyu/front-end-stack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/myungjaeyu/front-end-stack/issues"
+  },
+  "homepage": "https://github.com/myungjaeyu/front-end-stack#readme",
+  "description": ""
+}
