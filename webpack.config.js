@@ -25,7 +25,7 @@ module.exports = {
         use: { loader: 'babel-loader',
                options: { cacheDirectory: true,
                           plugins: ['react-hot-loader/babel']}}},
-      { test: /\.(scss|sass)$/,
+      { test: /\.(css|scss|sass)$/,
         use: [ { loader: 'style-loader' },
                { loader: 'css-loader',
                  options: { sourceMap: true }},
@@ -37,6 +37,12 @@ module.exports = {
                                                                         'not ie < 10']})]}},
                { loader: 'sass-loader',
                  options: { sourceMap: true }}]},
-      { test: /\.(jpe?g|png|gif|ico)$/i,
+      { test: /\.(jpe?g|png|gif|ico|svg)$/i,
         use: [ { loader: 'file-loader',
-                 options: { name: '[name].[ext]' }}]}]}};
+                 options: { name: '[name].[ext]' }}]},
+      { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'url-loader?limit=10000&mimetype=application/font-woff'},
+      { test: /\.(ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'file-loader'},
+      { test: /\.otf(\?.*)?$/,
+        use: 'file-loader?name=/fonts/[name].[ext]&mimetype=application/font-otf'}]}};
