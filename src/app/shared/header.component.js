@@ -11,8 +11,8 @@ const HeaderComponent = ({ title, subTitle }) => (
 );
 
 HeaderComponent.propTypes = {
-    title : PropTypes.string.isRequired,
-    subTitle : PropTypes.string.isRequired
+    title : PropTypes.string,
+    subTitle : PropTypes.string
 };
 
 export default HeaderComponent;
