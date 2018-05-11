@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "build": "webpack --config webpack.config.prod.js",
+    "serve": "serve dist",
+    "lint": "eslint src"
   },
   "keywords": [],
   "author": "Myungjae Yu <rootcode10@gmail.com> (https://github.com/myungjaeyu)",
-  "license": "ISC",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/myungjaeyu/front-end-stack.git"
