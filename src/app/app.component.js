@@ -1,5 +1,6 @@
 import { hot } from 'react-hot-loader';
-import * as React from 'react';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './app.component.sass';
 
 import HeaderComponent from './shared/header.component';
@@ -15,10 +16,16 @@ class AppComponent extends React.Component {
         const { title, subTitle, content } = this.state;
 
         return (
-        <div className="App">
-            <HeaderComponent title={ title } subTitle = { subTitle } />
-            <MainComponent content={ content }/>
-        </div>
+        <Router basename='/' >
+            <div className="App">
+                <HeaderComponent title={ title } subTitle = { subTitle } />
+                <Switch>
+                    <Route exact path='/' render={ () => (
+                        <MainComponent content={ content }/>
+                    )}/>
+                </Switch>
+            </div>
+        </Router>
         );
     }
 }
