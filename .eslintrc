@@ -8,6 +8,7 @@
             "react/jsx-filename-extension": ["error", {"extensions": [".js"]}],
             "react/jsx-max-props-per-line": ["error", {"maximum": 3}],
             "react/no-danger": "error",
-            "react/no-direct-mutation-state": "error"}}
+            "react/no-direct-mutation-state": "error",
+            "react/prefer-stateless-function": [0, { "ignorePureComponents": true }]}}
 
 // airbnb rule
