@@ -1,4 +1,6 @@
 const autoprefixer = require('autoprefixer'),
+      webpack = require('webpack'),
+      UglifyJsPlugin = require('uglifyjs-webpack-plugin'),
       HTMLWebpackPlugin = require('html-webpack-plugin'),
       MiniCssExtractPlugin = require('mini-css-extract-plugin'),
       CleanWebpackPlugin = require('clean-webpack-plugin'),
@@ -15,9 +17,11 @@ module.exports = {
   output: { path: path.resolve('dist'),
             filename: '[name].[hash].js',
             publicPath: ''},
-  plugins: [ new CleanWebpackPlugin(['dist']),
-             new MiniCssExtractPlugin({ filename: '[name].css'}),
-             new HTMLWebpackPlugin({ template: path.resolve('public/index.html')})],
+  plugins: [new webpack.optimize.OccurrenceOrderPlugin(),
+            new UglifyJsPlugin({ parallel: true, cache: true }),
+            new CleanWebpackPlugin(['dist']),
+            new MiniCssExtractPlugin({ filename: '[name].[hash].css' }),
+            new HTMLWebpackPlugin({ template: path.resolve('public/index.html'), inject: true})],
   module: {
     rules: [
       { test: /\.(js|jsx)$/,
