@@ -37,12 +37,6 @@ module.exports = {
                                                                         'not ie < 10']})]}},
                { loader: 'sass-loader',
                  options: { sourceMap: true }}]},
-      { test: /\.(jpe?g|png|gif|ico|svg)$/i,
+      { test: /\.(jpe?g|png|gif|ico|svg|woff|woff2|ttf|eot|otf)$/i,
         use: [ { loader: 'file-loader',
-                 options: { name: '[name].[ext]' }}]},
-      { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'url-loader?limit=10000&mimetype=application/font-woff'},
-      { test: /\.(ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'file-loader'},
-      { test: /\.otf(\?.*)?$/,
-        use: 'file-loader?name=/fonts/[name].[ext]&mimetype=application/font-otf'}]}};
+                 options: { name: '[name].[ext]' }}]}]}};
