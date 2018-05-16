@@ -4,13 +4,15 @@ const autoprefixer = require('autoprefixer'),
       HTMLWebpackPlugin = require('html-webpack-plugin'),
       MiniCssExtractPlugin = require('mini-css-extract-plugin'),
       CleanWebpackPlugin = require('clean-webpack-plugin'),
+      WorkboxPlugin = require('workbox-webpack-plugin'),
       path = require('path');
 
 
 module.exports = {
   mode: 'production',
   devtool: 'source-map',
-  entry: [path.resolve('src/main.js')],
+  entry: { main: './src/main.js',
+           prod: './src/prod.js'},
   resolve: { modules: [path.resolve('src'),
                        path.resolve('node_modules')],
              extensions: ['.js', '.jsx']},
@@ -21,7 +23,10 @@ module.exports = {
             new UglifyJsPlugin({ parallel: true, cache: true }),
             new CleanWebpackPlugin(['dist']),
             new MiniCssExtractPlugin({ filename: '[name].[hash].css' }),
-            new HTMLWebpackPlugin({ template: path.resolve('public/index.html'), inject: true})],
+            new HTMLWebpackPlugin({ template: path.resolve('public/index.html'), inject: true}),
+            new WorkboxPlugin.InjectManifest({ swSrc: './service-worker.js' }),
+            // new WorkboxPlugin.GenerateSW({ swDest: 'service-worker.js', clientsClaim: true, skipWaiting: true, })
+          ],
   module: {
     rules: [
       { test: /\.(js|jsx)$/,
