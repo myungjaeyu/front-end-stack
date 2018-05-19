@@ -1,11 +1,11 @@
 import { hot } from 'react-hot-loader';
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, browserHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './app.component.sass';
 
-import HeaderComponent from './shared/header.component';
-import MainComponent from './pages/main.component';
+import HeaderComponent from './shared/header/header.component';
+import MainComponent from './pages/main/main.component';
 
 import { getMockData } from './providers/redux/actions';
 
@@ -20,7 +20,7 @@ class AppComponent extends React.Component {
         const { mockData } = this.props;
 
         return (
-        <Router basename='/' >
+        <Router basename='/' history = {browserHistory} >
             <div className="App">
                 <HeaderComponent title={ mockData.title } subTitle = { mockData.subTitle } />
                 <Switch>
