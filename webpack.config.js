@@ -17,7 +17,7 @@ module.exports = {
             publicPath: '/'},
   plugins: [ new webpack.HotModuleReplacementPlugin(),
              new HTMLWebpackPlugin({ template: path.resolve('public/index.html') })],
-  devServer: { contentBase: '.tmp', hot: true, port: 3000},
+  devServer: { contentBase: '.tmp', hot: true, historyApiFallback: true, port: 3000},
   module: {
     rules: [
       { test: /\.(js|jsx)$/,
