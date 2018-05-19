@@ -1,10 +1,9 @@
 import React from 'react';
 import './init.component.sass';
 
-const InitComponent = ({ content }) => (
+const InitComponent = () => (
     <div className="Init">
         <h1>Init</h1>
-        <h1>{ content }</h1>
     </div>
 );
 

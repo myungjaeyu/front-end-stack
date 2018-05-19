@@ -1,11 +1,13 @@
 import { hot } from 'react-hot-loader';
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch, browserHistory } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, browserHistory, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './app.component.sass';
 
 import HeaderComponent from './shared/header/header.component';
 import MainComponent from './pages/main/main.component';
+import LoginComponent from './pages/login/login.component';
+import DetailBoardComponent from './pages/detail-board/detail-board.component';
 
 import { getMockData } from './providers/redux/actions';
 
@@ -27,6 +29,9 @@ class AppComponent extends React.Component {
                     <Route exact path='/' render={ () => (
                         <MainComponent content={ mockData.content }/>
                     )}/>
+                     <Route exact path='/login' component= { LoginComponent } />
+                     <Route exact path='/board/detail/:no' component= { DetailBoardComponent } />
+                     <Redirect from="**" to='/'/>
                 </Switch>
             </div>
         </Router>
