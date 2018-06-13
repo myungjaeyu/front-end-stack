@@ -1,15 +1,14 @@
-export const GET_MOCK_DATA         = '[MockData] GetMockData';
-export const GET_MOCK_DATA_SUCCESS = '[MockData] GetMockDataSuccess';
+import { ActionTypes } from '../constants';
 
 export const getMockData = () => {
 	return {
-		type: GET_MOCK_DATA
+		type: ActionTypes.GET_MOCK_DATA
 	}
 };
 
 export const getMockDataSuccess = (data) => {
 	return {
-		type : GET_MOCK_DATA_SUCCESS,
+		type : ActionTypes.GET_MOCK_DATA_SUCCESS,
 		data : data
 	}
 };

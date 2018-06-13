@@ -1,5 +1,6 @@
+import { combineEpics } from 'redux-observable';
 import { GetMockData$ } from './mock-data.epics';
 
-export {
+export default combineEpics(
     GetMockData$
-};
+);

@@ -1,20 +1,31 @@
-import newState from '../new-state';
-import { GET_MOCK_DATA, GET_MOCK_DATA_SUCCESS } from '../actions';
+import immutable from 'immutability-helper';
+import createReducer from '../createReducer';
 
-const initialState = {
+import { ActionTypes } from '../constants';
+
+const mockState = {
     pending: false,
     data : {}
 };
 
-const mockData = (state = initialState, action) => {
-
-    switch (action.type) {
-        case GET_MOCK_DATA:
-            return newState(state, { pending: true });
-        case GET_MOCK_DATA_SUCCESS:
-            return newState(state, { pending: false, data : action.data });
-        default : return state;
-    }
+export default {
+    mockData : createReducer(mockState, {
+        [ActionTypes.GET_MOCK_DATA](state) {
+            return immutable(state, {
+                pending: { 
+                    $set : true
+                }
+            });
+        },
+        [ActionTypes.GET_MOCK_DATA_SUCCESS](state, { data }) {
+            return immutable(state, {
+                pending: { 
+                    $set : false
+                },
+                data : {
+                    $set : data
+                }
+            });
+        },
+    })
 };
-
-export default mockData;
