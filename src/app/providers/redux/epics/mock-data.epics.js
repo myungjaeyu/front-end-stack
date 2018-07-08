@@ -4,13 +4,11 @@ import { getMockDataSuccess } from '../actions';
 
 import mockState from '../../mock-state';
 
-export const GetMockData$ = (epic) => epic.ofType(ActionTypes.GET_MOCK_DATA)
-                                    .switchMap( (action) => Observable.ajax({
-                                        url : '',
-                                        method : 'GET',
-                                        crossDomain : true
-                                    })
-                                    .map(e => e.response)
-                                    .catch(err => console.error(err))
-                                    )
-                                    .map(v => getMockDataSuccess(mockState)); // mock
+import { ofType } from 'redux-observable';
+import { map } from 'rxjs/operators';
+
+export const GetMockData$ = (epic) => epic.pipe(
+                                            ofType(ActionTypes.GET_MOCK_DATA),
+                                            // map(e => console.log(e)),
+                                            map(_ => getMockDataSuccess(mockState))
+                                        );
